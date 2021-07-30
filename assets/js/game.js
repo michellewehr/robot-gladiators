@@ -16,12 +16,8 @@ var enemyNames = ["Roberto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12; 
 
-for(var i =0; i < enemyNames.length; i++){
-    console.log(enemyNames[i]);
-    console.log(i);
-    console.log(enemyNames[i] + " is at " + i + " index");
-}
-var fight = function(){
+
+var fight = function(enemyName){
     //ask the players if they'd like to fight
     var promptFight = window.prompt("Would you like to FIGHT or SKIP? Enter 'FIGHT' or 'SKIP' choose.");
    if (promptFight === 'fight' || promptFight === "FIGHT"){
@@ -68,5 +64,9 @@ var fight = function(){
         window.alert('You need to choose a valid option. Try again!');
     }
 };
+
+ for (var i =0; i < enemyNames.length; i++){
+     fight(enemyNames[i]);
+ }
 
 // fight();
