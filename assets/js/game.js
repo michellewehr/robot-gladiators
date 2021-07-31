@@ -116,27 +116,11 @@ var shop = function() {
     switch (shopOptionPrompt) {
         case "refill": //new case
         case "REFILL": 
-            if (playerInfo.money >= 7) {
-                window.alert("Refilling player's health by 20 for 7 dollars.");
-                //increase health and decrease money
-                playerInfo.health = playerInfo.health + 20;
-                playerInfo.name = playerInfo.money - 7;
-                }
-            else {
-                window.alert("You don't have enough money!");
-            }
+            playerInfo.refillHealth();
             break;
         case "upgrade": //new case
         case "UPGRADE":
-            if (playerInfo.money >= 7) {
-                window.alert("Upgrading player's attack by 6 for 7 dollars.");
-                //increase attack and decrease money
-                playerInfo.attack = playerInfo.attack + 6;
-                playerInfo.money = playerInfo.money - 7;
-            }
-            else {
-                window.alert("You don't have enough money!");
-            }
+            playerInfo.upgradeAttack();
             break;
         case "leave": //new case
         case "LEAVE":
@@ -159,6 +143,7 @@ var randomNumber = function(min, max){
 }
 // you can also log multiple values at once like this
 // console.log(playerInfo.name, playerInfo.health, playerInfo.attack);
+// create enemyInfo OBJECT (which is also an ARRAY)
 var enemyInfo = [
     {
         name: "Roborto",
@@ -173,6 +158,7 @@ var enemyInfo = [
         attack: randomNumber(10, 14)
     }
 ];
+//create playerInfo OBJECT
 var playerInfo = {
     name: window.prompt("What is your robot's name?"),
     health: 100,
@@ -182,8 +168,27 @@ var playerInfo = {
         this.health = 100;
         this.money = 10;
         this.attack = 10;
+    }, //comma!
+    refillHealth: function() {
+        if(this.money >= 7){
+            this.health +=20;
+            this.money -= 7;
+        } 
+        else{
+            window.alert("You don't have enough money!");
+        }
+    }, //comma!
+    upgradeAttack: function() {
+        if (this.money >= 7){
+            this.attack += 6;
+            this.money -= 7;
+        }
+        else {
+            window.alert("You don't have enough money!");
+        }
     }
-};
+} 
+
 
 //start the game when the page loads
 startGame();
