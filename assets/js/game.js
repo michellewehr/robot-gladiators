@@ -158,9 +158,20 @@ var enemyInfo = [
         attack: randomNumber(10, 14)
     }
 ];
+//create function getPlayerName() -should NOT acept invalid date(blank/null) & prompt the player until valid data is received
+var getPlayerName = function() {
+    var name = "";
+    // ADD LOOP HERE WITH PROMPT AND CONDITION
+    while (name === "" || name === null) {
+        name = prompt("What is your robot's name?");
+    }
+
+    console.log("Your robot's name is " + name);
+    return name;
+}
 //create playerInfo OBJECT
 var playerInfo = {
-    name: window.prompt("What is your robot's name?"),
+    name: getPlayerName(),
     health: 100,
     attack: 10,
     money: 10,
