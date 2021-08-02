@@ -123,6 +123,7 @@ var endGame = function(){
         window.alert("Thank you for playing Robot Gladiators! Come back soon!");
     }
 };
+
 //add shop game function
 var shop = function() {
     //ask the player what they'd like to do
